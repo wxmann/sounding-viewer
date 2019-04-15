@@ -8,12 +8,12 @@ export default class QueryForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        station : null,
-        raobDate: new Date(),
-        soundingResult : null,
-        isLoaded: false,
-        error: null
-    }
+      station : null,
+      raobDate: new Date(),
+      soundingResult : null,
+      isLoaded: false,
+      error: null
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -23,27 +23,26 @@ export default class QueryForm extends Component {
 
     let date = this.state.raobDate;
     let formData = {
-        station : this.state.station,
-        year: date.getFullYear(),
-        month: date.getMonth() + 1,
-        day: date.getDate(),
-        hour: this.state.hour
+      station : this.state.station,
+      year: date.getFullYear(),
+      month: date.getMonth() + 1,
+      day: date.getDate(),
+      hour: this.state.hour
     }
-    debugger;
 
     try {
-        let sounding = await fetchRaob(formData);
-        this.setState({
-            soundingResult: JSON.stringify(sounding),
-            isLoaded: true,
-            error: null
-        });
+      let sounding = await fetchRaob(formData);
+      this.setState({
+        soundingResult: JSON.stringify(sounding),
+        isLoaded: true,
+        error: null
+      });
     } catch (error) {
-        console.log(error);
-        this.setState({
-            isLoaded: false,
-            error: error
-        });
+      console.log(error);
+      this.setState({
+        isLoaded: false,
+        error: error 
+      });
     }
   }
 
@@ -70,7 +69,8 @@ export default class QueryForm extends Component {
         </form>
 
         <Viewport 
-            soundingResult={this.state.soundingResult} />
+          soundingResult={this.state.soundingResult} 
+        />
       </div>
     );
   }
