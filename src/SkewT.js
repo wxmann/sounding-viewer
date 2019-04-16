@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
-import * as d3 from 'd3';
+
+import { skewTArea } from './config/container';
+import Isotherms from './plotting/Isotherms';
 
 export default class SkewT extends Component {
-
-  drawChart() {
-    const data = [12, 5, 6, 6, 9, 10];
-    const svg = d3.select("body").append("svg").attr("width", 700).attr("height", 300);
-  }
-
-  componentDidMount(){
-
-  }
-
   render() {
     return (
-      <div className="skewT" />
+      <svg 
+        x={skewTArea.x}
+        y={skewTArea.y}
+        width={skewTArea.width}
+        height={skewTArea.height}>
+
+        <rect 
+          width="100%" 
+          height="100%"
+          stroke="black"
+          strokeWidth="3px"
+          fill="none"
+        />
+
+        <Isotherms />
+      </svg>  
     )
   }
 }
