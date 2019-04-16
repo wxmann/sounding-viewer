@@ -23,7 +23,7 @@ export default function PressureLevels() {
         const topCoord = toSkewTCoord(topP, topT);
 
         const attrs = getPathAttrs([bottomCoord, topCoord]);
-        attrs.stroke = 'black';
+        attrs.stroke = 'gray';
         return React.createElement('polyline', attrs);
       })}
     </g>

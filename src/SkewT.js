@@ -4,6 +4,8 @@ import { skewTArea } from './config/container';
 import Isotherms from './plotting/Isotherms';
 import PressureLevels from './plotting/PressureLevels';
 import MixingRatios from './plotting/MixingRatios';
+import DryAdiabats from './plotting/DryAdiabats';
+import MoistAdiabats from './plotting/MoistAdiabats';
 
 export default class SkewT extends Component {
   render() {
@@ -25,6 +27,8 @@ export default class SkewT extends Component {
         <Isotherms />
         <PressureLevels />
         <MixingRatios />
+        <DryAdiabats />
+        <MoistAdiabats />
       </svg>  
     )
   }

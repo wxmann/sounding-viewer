@@ -154,13 +154,13 @@ const thetaE_from_thetaW = function(thetaw) {
  * @param thetae equivalent potential temperature, in Celsius.
  */
 const tempAtThetaE = function(p, thetae) {
-    const TguessK = 253.16;
-    const adjustment = 120;
-    const thetaSGuess = temp_CtoK(thetaE(p, temp_KtoC(TguessK)));
-    const i = 0;
-    const eps = 1E-6;
-    const maxIterations = 50;
-    const thetaS_K = temp_CtoK(thetae);
+    let TguessK = 253.16;
+    let adjustment = 120;
+    let thetaSGuess = temp_CtoK(thetaE(p, temp_KtoC(TguessK)));
+    let i = 0;
+    let eps = 1E-6;
+    let maxIterations = 50;
+    let thetaS_K = temp_CtoK(thetae);
 
     while (i < maxIterations && Math.abs(thetaSGuess - thetaS_K) > eps) {
         adjustment /= 2;
@@ -189,6 +189,6 @@ export {
     tempAtMixingRatio,
     virtualTempAtMixingRatio,
     tempAtDryAdiabat,
-    thetaE_from_thetaW,
-    tempAtThetaE
+    tempAtThetaE,
+    tempAtMoistAdiabat
 };
