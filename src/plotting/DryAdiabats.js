@@ -4,8 +4,8 @@ import {
   skewTParams
 } from '../config/skewT-config';
 import {
-  getPathAttrs
-} from './plot-common';
+  getPathStr
+} from './plot-helpers';
 import {
   tempAtDryAdiabat
 } from '../utils/calcs'
@@ -26,7 +26,7 @@ export default function DryAdiabats() {
       d={
         skewTParams.dryAdiabats.map(theta => {
           let dryAdiabatCoords = getDryAdiabat(theta, skewTParams.pMax, skewTParams.pMin, 25);
-          return getPathAttrs(dryAdiabatCoords);
+          return getPathStr(dryAdiabatCoords);
         })
       }
       stroke="orange"

@@ -1,4 +1,4 @@
-function getPathAttrs(coords) {
+function getPathStr(coords) {
     let firstCoord = coords.shift();
     let moveToStr = `M${[firstCoord.x, firstCoord.y].join(' ')}`
     let linesStr = coords.map(coord => {
@@ -9,5 +9,5 @@ function getPathAttrs(coords) {
 }
 
 export {
-    getPathAttrs
+    getPathStr
 }

@@ -4,8 +4,8 @@ import {
   skewTParams
 } from '../config/skewT-config';
 import {
-  getPathAttrs
-} from './plot-common';
+  getPathStr
+} from './plot-helpers';
 
 export default function PressureLevels() {
   return (
@@ -16,7 +16,7 @@ export default function PressureLevels() {
           .map(p => {
             const leftCoord = toSkewTCoord(p, skewTParams.tMin);
             const rightCoord = toSkewTCoord(p, skewTParams.tMax);
-            return getPathAttrs([leftCoord, rightCoord]);
+            return getPathStr([leftCoord, rightCoord]);
           })
       }
       stroke="black"

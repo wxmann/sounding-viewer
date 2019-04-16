@@ -4,8 +4,8 @@ import {
   skewTParams
 } from '../config/skewT-config';
 import {
-  getPathAttrs
-} from './plot-common';
+  getPathStr
+} from './plot-helpers';
 
 export default function Isotherms() {
   return (
@@ -16,7 +16,7 @@ export default function Isotherms() {
           .map(T => {
             const topCoord = toSkewTCoord(skewTParams.pMin, T);
             const bottomCoord = toSkewTCoord(skewTParams.pMax, T);
-            return getPathAttrs([topCoord, bottomCoord]);
+            return getPathStr([topCoord, bottomCoord]);
           })
       }
       stroke='black'

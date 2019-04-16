@@ -4,8 +4,8 @@ import {
   skewTParams
 } from '../config/skewT-config';
 import {
-  getPathAttrs
-} from './plot-common';
+  getPathStr
+} from './plot-helpers';
 import {
   tempAtMixingRatio
 } from '../utils/calcs'
@@ -24,7 +24,7 @@ export default function MixingRatios() {
           const topT = tempAtMixingRatio(topP, mixingRatio);
           const topCoord = toSkewTCoord(topP, topT);
   
-          return getPathAttrs([bottomCoord, topCoord]);
+          return getPathStr([bottomCoord, topCoord]);
         })
       }
       stroke="gray"

@@ -4,8 +4,8 @@ import {
   skewTParams
 } from '../config/skewT-config';
 import {
-  getPathAttrs
-} from './plot-common';
+  getPathStr
+} from './plot-helpers';
 import {
   tempAtMoistAdiabat
 } from '../utils/calcs'
@@ -26,7 +26,7 @@ export default function MoistAdiabats() {
       d={
         skewTParams.moistAdiabats.map(theta => {
           let moistAdiabatCoords = getMoistAdiabat(theta, skewTParams.pMax, skewTParams.pMin, 25);
-          return getPathAttrs(moistAdiabatCoords);
+          return getPathStr(moistAdiabatCoords);
         })
       }
       stroke="green"
