@@ -21,13 +21,16 @@ function getDryAdiabat(theta, hiP, lowP, dp) {
 
 export default function DryAdiabats() {
   return (
-    <g id="dryAdiabats">
-      {skewTParams.dryAdiabats.map(theta => {
-        let dryAdiabatCoords = getDryAdiabat(theta, skewTParams.pMax, skewTParams.pMin, 25);
-        let attrs = getPathAttrs(dryAdiabatCoords);
-        attrs.stroke = 'orange';
-        return React.createElement('polyline', attrs);
-      })}  
-    </g>
+    <path 
+      id="dryAdiabats"
+      d={
+        skewTParams.dryAdiabats.map(theta => {
+          let dryAdiabatCoords = getDryAdiabat(theta, skewTParams.pMax, skewTParams.pMin, 25);
+          return getPathAttrs(dryAdiabatCoords);
+        })
+      }
+      stroke="orange"
+      fill="none"
+    />
   )
 };

@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 
 import { skewTArea } from './config/container';
-import Isotherms from './plotting/Isotherms';
-import PressureLevels from './plotting/PressureLevels';
-import MixingRatios from './plotting/MixingRatios';
-import DryAdiabats from './plotting/DryAdiabats';
-import MoistAdiabats from './plotting/MoistAdiabats';
+import SkewTOutline from './plotting/SkewTOutline';
 
 export default class SkewT extends Component {
   render() {
@@ -24,11 +20,7 @@ export default class SkewT extends Component {
           fill="none"
         />
 
-        <Isotherms />
-        <PressureLevels />
-        <MixingRatios />
-        <DryAdiabats />
-        <MoistAdiabats />
+        <SkewTOutline />
       </svg>  
     )
   }

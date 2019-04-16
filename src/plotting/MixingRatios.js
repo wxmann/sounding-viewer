@@ -10,22 +10,26 @@ import {
   tempAtMixingRatio
 } from '../utils/calcs'
 
-export default function PressureLevels() {
+export default function MixingRatios() {
   return (
-    <g id="mixingRatios">
-      {skewTParams.mixingRatios.map(mixingRatio => {
-        const bottomP = skewTParams.pMin;
-        const bottomT = tempAtMixingRatio(bottomP, mixingRatio);
-        const bottomCoord = toSkewTCoord(bottomP, bottomT);
-
-        const topP = skewTParams.pMax;
-        const topT = tempAtMixingRatio(topP, mixingRatio);
-        const topCoord = toSkewTCoord(topP, topT);
-
-        const attrs = getPathAttrs([bottomCoord, topCoord]);
-        attrs.stroke = 'gray';
-        return React.createElement('polyline', attrs);
-      })}
-    </g>
+    <path 
+      id="mixingRatios"
+      d={
+        skewTParams.mixingRatios.map(mixingRatio => {
+          const bottomP = skewTParams.pMin;
+          const bottomT = tempAtMixingRatio(bottomP, mixingRatio);
+          const bottomCoord = toSkewTCoord(bottomP, bottomT);
+  
+          const topP = skewTParams.pMax;
+          const topT = tempAtMixingRatio(topP, mixingRatio);
+          const topCoord = toSkewTCoord(topP, topT);
+  
+          return getPathAttrs([bottomCoord, topCoord]);
+        })
+      }
+      stroke="gray"
+      alpha="0.9"
+      fill="none"
+    />
   )
 };

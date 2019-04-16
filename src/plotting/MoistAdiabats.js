@@ -21,13 +21,16 @@ function getMoistAdiabat(thetaW, hiP, lowP, dp) {
 
 export default function MoistAdiabats() {
   return (
-    <g id="moistAdiabats">
-      {skewTParams.moistAdiabats.map(theta => {
-        let moistAdiabatCoords = getMoistAdiabat(theta, skewTParams.pMax, skewTParams.pMin, 25);
-        let attrs = getPathAttrs(moistAdiabatCoords);
-        attrs.stroke = 'green';
-        return React.createElement('polyline', attrs);
-      })}  
-    </g>
+    <path 
+      id="moistAdiabats"
+      d={
+        skewTParams.moistAdiabats.map(theta => {
+          let moistAdiabatCoords = getMoistAdiabat(theta, skewTParams.pMax, skewTParams.pMin, 25);
+          return getPathAttrs(moistAdiabatCoords);
+        })
+      }
+      stroke="green"
+      fill="none"
+    />
   )
 };

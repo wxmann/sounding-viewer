@@ -1,12 +1,11 @@
 function getPathAttrs(coords) {
-    const allpoints = [];
-    coords.forEach(function(coord) {
-        allpoints.push([coord.x, coord.y].join(' '));
-    });
-    return {
-        'points': allpoints.join(', '),
-        'fill': 'none'
-    };
+    let firstCoord = coords.shift();
+    let moveToStr = `M${[firstCoord.x, firstCoord.y].join(' ')}`
+    let linesStr = coords.map(coord => {
+        return `L${[coord.x, coord.y].join(' ')}`;
+    }).join(' ');
+
+    return `${moveToStr} ${linesStr}`;
 }
 
 export {

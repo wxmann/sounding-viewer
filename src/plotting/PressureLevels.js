@@ -9,15 +9,18 @@ import {
 
 export default function PressureLevels() {
   return (
-    <g id="pressureLevels">
-      {skewTParams.isobars.map(p => {
-        const leftCoord = toSkewTCoord(p, skewTParams.tMin);
-        const rightCoord = toSkewTCoord(p, skewTParams.tMax);
-
-        const attrs = getPathAttrs([leftCoord, rightCoord]);
-        attrs.stroke = 'black';
-        return React.createElement('polyline', attrs);
-      })}
-    </g>
+    <path 
+      id="pressureLevels"
+      d={
+        skewTParams.isobars
+          .map(p => {
+            const leftCoord = toSkewTCoord(p, skewTParams.tMin);
+            const rightCoord = toSkewTCoord(p, skewTParams.tMax);
+            return getPathAttrs([leftCoord, rightCoord]);
+          })
+      }
+      stroke="black"
+      fill="none"
+    />
   )
 };
