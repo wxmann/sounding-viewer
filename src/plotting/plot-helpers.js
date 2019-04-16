@@ -13,7 +13,7 @@ function getPathStr(coords) {
 function extract_pT_Field(profile, field) {
   return profile
     .filter(ob => {
-      return ob !== null && ob[field] !== undefined && ob.pressure !== undefined
+      return ob !== null && ob[field] !== null && ob.pressure !== null;
     })
     .map(ob => {
       let p = ob.pressure;

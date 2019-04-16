@@ -1,7 +1,7 @@
 import RangeInclusive from '../utils/range';
 
 const pSeq = RangeInclusive(100, 1050, 50);
-const tSeq = RangeInclusive(-100, 40, 10);
+const tSeq = RangeInclusive(-110, 50, 10);
 const thetaSeq = RangeInclusive(-30, 160, 10);
 const thetaWSeq = RangeInclusive(-20, 40, 5);
 

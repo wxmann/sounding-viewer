@@ -10,9 +10,9 @@ export default class Profile extends React.Component {
     }
   }
 
-  componentWillReceiveProps(props) {
-    if (props.soundingData !== null) {
-      this.setState({soundingData: props.soundingData});
+  componentWillReceiveProps(nextProps) {
+    if (this.props != nextProps) {
+      this.setState({soundingData: nextProps.soundingData});
     }
   }
 
