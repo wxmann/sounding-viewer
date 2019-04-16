@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import SkewT from './SkewT';
 
-export default class Viewport extends Component {
-    render() {
-        return (
-            <div className="sounding-data">
-                {this.props.soundingResult}
-            </div>
-        )
-    }
-};
+export default function Viewport(props) {
+  return (
+    <SkewT soundingData={props.soundingData} />
+  )
+}
