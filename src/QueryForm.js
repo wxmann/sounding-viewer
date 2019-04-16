@@ -33,7 +33,7 @@ export default class QueryForm extends Component {
     try {
       let sounding = await fetchRaob(formData);
       this.setState({
-        soundingResult: JSON.stringify(sounding),
+        soundingResult: sounding,
         isLoaded: true,
         error: null
       });
@@ -69,7 +69,7 @@ export default class QueryForm extends Component {
         </form>
 
         <Viewport 
-          soundingResult={this.state.soundingResult} 
+          soundingData={this.state.soundingResult} 
         />
       </div>
     );

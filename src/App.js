@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import QueryForm from './QueryForm';
-import Viewport from './Viewport';
 
 class App extends Component {
   render() {
