@@ -7,14 +7,14 @@ import {
   getPathAttrs
 } from './plot-common';
 
-export default function Isotherms() {
+export default function PressureLevels() {
   return (
-    <g id="isotherms">
-      {skewTParams.isotherms.map(T => {
-        const topCoord = toSkewTCoord(skewTParams.pMin, T);
-        const bottomCoord = toSkewTCoord(skewTParams.pMax, T);
+    <g id="pressureLevels">
+      {skewTParams.isobars.map(p => {
+        const leftCoord = toSkewTCoord(p, skewTParams.tMin);
+        const rightCoord = toSkewTCoord(p, skewTParams.tMax);
 
-        const attrs = getPathAttrs([topCoord, bottomCoord]);
+        const attrs = getPathAttrs([leftCoord, rightCoord]);
         attrs.stroke = 'black';
         return React.createElement('polyline', attrs);
       })}
