@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Historical RAOBS</h1>
+        <h1>Historical Sounding Browser</h1>
         <QueryForm/>
       </div>
     );

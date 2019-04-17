@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-import { skewTArea } from './config/container';
+import { 
+  skewTArea,
+  skewTLabelArea
+} from './config/container';
 import SkewTOutline from './plotting/SkewTOutline';
 import Profile from './plotting/Profile';
+import IsothermLabels from './plotting/IsothermLabels';
+import PressureLevelLabels from './plotting/PressureLevelLabels';
 
 export default function SkewT(props) {
   return (
-    <svg 
-      x={skewTArea.x}
-      y={skewTArea.y}
+    <Fragment>
+    <svg
+      id="skewTOutline" 
+      x="0"
+      y="0"
       width={skewTArea.width}
-      height={skewTArea.height}>
+      height={skewTArea.height}
+    >
 
       <rect 
-        width="100%" 
-        height="100%"
+        width={skewTArea.width}
+        height={skewTArea.height}
         stroke="black"
         strokeWidth="3px"
         fill="none"
@@ -22,6 +30,18 @@ export default function SkewT(props) {
 
       <SkewTOutline />
       <Profile soundingData={props.soundingData} />
-    </svg>  
+      {/* <IsothermLabels /> */}
+    </svg>
+    
+    <svg
+      id="skewTLabels"
+      x={skewTLabelArea.x}
+      y={skewTLabelArea.y}
+
+    >
+      <IsothermLabels />
+      <PressureLevelLabels />
+    </svg>
+    </Fragment>
   )
 }

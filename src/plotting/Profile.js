@@ -24,7 +24,7 @@ export default class Profile extends React.Component {
     } 
   
     return (
-      <Fragment>
+      <g id="profiles">
         <path 
           id="temperatureTrace"
           d={
@@ -48,7 +48,7 @@ export default class Profile extends React.Component {
           strokeWidth="4px"
           fill="none"
         />
-      </Fragment>
+      </g>
     )
   }
   

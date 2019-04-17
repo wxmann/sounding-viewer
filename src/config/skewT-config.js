@@ -1,7 +1,7 @@
 import RangeInclusive from '../utils/range';
 
 const pSeq = RangeInclusive(100, 1050, 50);
-const tSeq = RangeInclusive(-110, 50, 10);
+const tSeq = RangeInclusive(-120, 50, 10);
 const thetaSeq = RangeInclusive(-30, 160, 10);
 const thetaWSeq = RangeInclusive(-20, 40, 5);
 
@@ -15,7 +15,7 @@ const skewTParams = {
     isotherms: tSeq.values,
     tMin: tSeq.start,
     tMax: tSeq.stop,
-    skew: 0.9,
+    skew: 1.0,
 
     // mixing ratios
     mixingRatios: [0.4, 1, 2, 4, 7, 10, 16, 24, 32, 40],
@@ -33,7 +33,7 @@ const skewTParams = {
 
 const skewTLabels = {
     pressures: RangeInclusive(100, 1000, 100).values,
-    temperatures: RangeInclusive(-40, 40, 10).values,
+    temperatures: RangeInclusive(-tSeq.stop, tSeq.stop, 10).values,
     padding: 10
 };
 

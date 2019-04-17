@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import Isotherms from './Isotherms';
 import PressureLevels from './PressureLevels';
@@ -8,12 +8,12 @@ import MoistAdiabats from './MoistAdiabats';
 
 export default function SkewTOutline() {
   return (
-    <Fragment>
+    <g id="skewTOutline">
       <Isotherms />
       <PressureLevels />
       <MixingRatios />
       <DryAdiabats />
       <MoistAdiabats />
-    </Fragment>
+    </g>
   )
 }
