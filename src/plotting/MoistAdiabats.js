@@ -5,7 +5,7 @@ import {
 } from '../config/skewT-config';
 import {
   getPathStr
-} from './plot-helpers';
+} from '../utils/plot-helpers';
 import {
   tempAtMoistAdiabat
 } from '../utils/calcs'

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getPathStr, extract_pT_Field } from './plot-helpers';
+import { getPathStr, extract_pT_Field } from '../utils/plot-helpers';
 
 export default class Profile extends React.Component {
   constructor(props) {

@@ -9,7 +9,7 @@ import SkewTOutline from './plotting/SkewTOutline';
 import Profile from './plotting/Profile';
 import IsothermLabels from './plotting/IsothermLabels';
 import PressureLevelLabels from './plotting/PressureLevelLabels';
-import WindBarbLiner from './plotting/WindBarbLiner';
+import WindStaff from './plotting/WindStaff';
 
 export default function SkewT(props) {
   return (
@@ -43,7 +43,7 @@ export default function SkewT(props) {
         width={skewTWindBarbs.width}
         height={skewTWindBarbs.height}
       >
-        <WindBarbLiner soundingData={props.soundingData} />
+        <WindStaff soundingData={props.soundingData} />
       </svg>
     </Fragment>
   )
