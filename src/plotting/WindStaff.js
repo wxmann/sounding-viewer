@@ -28,7 +28,7 @@ function densityAdjustBarbs(data) {
 }
 
 function adjustedDeltaBarb(p) {
-  return (p / 1000) * windBarbConfig.deltaBarb;
+  return Math.sqrt(p / 1000) * windBarbConfig.deltaBarb;
 }
 
 export default class WindStaff extends React.Component {
