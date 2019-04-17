@@ -16,9 +16,9 @@ const skewTArea = {
 
 const skewTWindBarbs = {
     x: skewTArea.x + skewTArea.width,
-    y: upperPadding,
+    y: 0,
     width: 100,
-    height: skewTArea.height + skewTLabelPadding.height
+    height: skewTArea.height + skewTLabelPadding.height + upperPadding
 };
 
 const hodographArea = {

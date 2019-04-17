@@ -63,10 +63,10 @@ export default class WindBarbLiner extends React.Component {
             let windspd = ob.speed;
             let winddir = ob.direction;
 
-            let yCoord = toSkewTCoord(p, 0).y;
+            let yCoord = toSkewTCoord(p, 0).y + upperPadding;
             let xCoord = skewTWindBarbs.width / 2;
 
-            if (yCoord < windBarbConfig.barbLength) {
+            if (yCoord < upperPadding) {
               return null;
             }
 
