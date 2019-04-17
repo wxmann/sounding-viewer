@@ -17,9 +17,9 @@ export default function PressureLevelLabels() {
       textAnchor="end"
     >
       {
-        skewTLabels.pressures.map(function (p) {
-          let y = toSkewTCoord(p, 0).y,
-              x = skewTLabelPadding.x
+        skewTLabels.pressures.map(p => {
+          let y = toSkewTCoord(p, 0).y + upperPadding,
+              x = skewTLabelPadding.x + skewTLabelPadding.width
 
           return React.createElement('text', {
             'x': x.toString(),

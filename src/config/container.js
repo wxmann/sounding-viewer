@@ -29,8 +29,8 @@ const hodographArea = {
 };
 
 const skewTLabelArea = {
-    x: skewTLabelPadding.x,
-    y: skewTLabelPadding.y,
+    x: 0,
+    y: 0,
     width: skewTWindBarbs.x + skewTWindBarbs.width,
     height: skewTLabelPadding.y + skewTLabelPadding.height + upperPadding + skewTArea.height
 }

@@ -2,8 +2,9 @@ import React from 'react';
 import toSkewTCoord from '../transform/skewT-transform';
 import {
   skewTParams,
-  skewTLabels
+  skewTLabels,
 } from '../config/skewT-config';
+import { upperPadding, skewTLabelPadding } from '../config/container';
 
 export default function IsothermLabels() {
   return (
@@ -16,13 +17,18 @@ export default function IsothermLabels() {
         skewTLabels.temperatures.map(function (T) {
           let maxP = skewTParams.pMax;
           let coords = toSkewTCoord(maxP, T);
-          let y = coords.y,
-              x = coords.x;
+          let y = coords.y + upperPadding,
+              x = coords.x + skewTLabelPadding.width;
 
-          return React.createElement('text', {
-            'x': x.toString(),
-            'y': y.toString(),
-          }, T);
+          if (x >= skewTLabelPadding.width) {
+            return React.createElement('text', {
+              'x': x.toString(),
+              'y': y.toString(),
+            }, T);
+          } 
+          else {
+            return null;
+          }
         })
       }
     </g>

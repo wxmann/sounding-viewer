@@ -23,7 +23,7 @@ export default class QueryForm extends Component {
 
     let date = this.state.raobDate;
     let formData = {
-      station : this.state.station,
+      station : this.state.station.toUpperCase(),
       year: date.getFullYear(),
       month: date.getMonth() + 1,
       day: date.getDate(),

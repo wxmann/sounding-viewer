@@ -6,9 +6,21 @@ import MixingRatios from './MixingRatios';
 import DryAdiabats from './DryAdiabats';
 import MoistAdiabats from './MoistAdiabats';
 
+import {
+  skewTArea
+} from '../config/container';
+
 export default function SkewTOutline() {
   return (
     <g id="skewTOutline">
+      <rect 
+        width="100%"
+        height="100%"
+        stroke="black"
+        strokeWidth="3px"
+        fill="none"
+      />
+
       <Isotherms />
       <PressureLevels />
       <MixingRatios />
