@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import { 
   skewTArea,
   skewTLabelArea,
-  skewTWindBarbs
+  skewTWindStaffArea
 } from './config/container';
 import SkewTOutline from './plotting/SkewTOutline';
 import Profile from './plotting/Profile';
@@ -37,11 +37,11 @@ export default function SkewT(props) {
       </svg>
 
       <svg
-        id="skewTWindBarbLiner"
-        x={skewTWindBarbs.x}
-        y={skewTWindBarbs.y}
-        width={skewTWindBarbs.width}
-        height={skewTWindBarbs.height}
+        id="skewTWindStaff"
+        x={skewTWindStaffArea.x}
+        y={skewTWindStaffArea.y}
+        width={skewTWindStaffArea.width}
+        height={skewTWindStaffArea.height}
       >
         <WindStaff soundingData={props.soundingData} />
       </svg>

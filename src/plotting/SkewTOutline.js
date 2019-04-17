@@ -9,7 +9,8 @@ import MoistAdiabats from './MoistAdiabats';
 export default function SkewTOutline() {
   return (
     <g id="skewTOutline">
-      <rect 
+      <rect
+        id="skewTBorder" 
         width="100%"
         height="100%"
         stroke="black"

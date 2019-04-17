@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  skewTWindBarbs, upperPadding
+  skewTWindStaffArea, upperPadding
 } from '../config/container';
 import toSkewTCoord from '../transform/skewT-transform';
 import WindBarb from './WindBarb';
@@ -31,7 +31,7 @@ function adjustedDeltaBarb(p) {
   return (p / 1000) * windBarbConfig.deltaBarb;
 }
 
-export default class WindBarbLiner extends React.Component {
+export default class WindStaff extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,7 +64,7 @@ export default class WindBarbLiner extends React.Component {
             let winddir = ob.direction;
 
             let yCoord = toSkewTCoord(p, 0).y + upperPadding;
-            let xCoord = skewTWindBarbs.width / 2;
+            let xCoord = skewTWindStaffArea.width / 2;
 
             if (yCoord < upperPadding) {
               return null;

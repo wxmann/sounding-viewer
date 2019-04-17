@@ -14,7 +14,7 @@ const skewTArea = {
     height: 800
 };
 
-const skewTWindBarbs = {
+const skewTWindStaffArea = {
     x: skewTArea.x + skewTArea.width,
     y: 0,
     width: 100,
@@ -22,7 +22,7 @@ const skewTWindBarbs = {
 };
 
 const hodographArea = {
-    x: skewTWindBarbs.x + skewTWindBarbs.width,
+    x: skewTWindStaffArea.x + skewTWindStaffArea.width,
     y: upperPadding,
     width: skewTArea.width / 1.33,
     height: skewTArea.height / 1.33
@@ -31,18 +31,18 @@ const hodographArea = {
 const skewTLabelArea = {
     x: 0,
     y: 0,
-    width: skewTWindBarbs.x + skewTWindBarbs.width,
+    width: skewTWindStaffArea.x + skewTWindStaffArea.width,
     height: skewTLabelPadding.y + skewTLabelPadding.height + upperPadding + skewTArea.height
 }
 
-const containerWidth = skewTLabelPadding.width + skewTArea.width + skewTWindBarbs.width + hodographArea.width + rightPadding;
-const containerHeight = Math.max(skewTLabelPadding.height, skewTArea.height, skewTWindBarbs.height, hodographArea.height) + upperPadding;
+const containerWidth = skewTLabelPadding.width + skewTArea.width + skewTWindStaffArea.width + hodographArea.width + rightPadding;
+const containerHeight = Math.max(skewTLabelPadding.height, skewTArea.height, skewTWindStaffArea.height, hodographArea.height) + upperPadding;
 
 export {
     skewTLabelPadding,
     skewTLabelArea,
     skewTArea,
-    skewTWindBarbs,
+    skewTWindStaffArea,
     upperPadding,
     hodographArea,
     containerWidth,

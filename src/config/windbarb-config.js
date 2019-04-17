@@ -1,9 +1,9 @@
 import {
-  skewTWindBarbs
+  skewTWindStaffArea
 } from './container';
 
 const windBarbConfig = (() => {
-  var barbLengthBase = skewTWindBarbs.width / 2.75;
+  var barbLengthBase = skewTWindStaffArea.width / 2.75;
   var barbConfig = {
       barbLength: barbLengthBase,
       longBarbHeight: barbLengthBase / 3,
