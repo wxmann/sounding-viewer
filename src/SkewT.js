@@ -2,12 +2,14 @@ import React, { Fragment } from 'react';
 
 import { 
   skewTArea,
-  skewTLabelArea
+  skewTLabelArea,
+  skewTWindBarbs
 } from './config/container';
 import SkewTOutline from './plotting/SkewTOutline';
 import Profile from './plotting/Profile';
 import IsothermLabels from './plotting/IsothermLabels';
 import PressureLevelLabels from './plotting/PressureLevelLabels';
+import WindBarbLiner from './plotting/WindBarbLiner';
 
 export default function SkewT(props) {
   return (
@@ -32,6 +34,16 @@ export default function SkewT(props) {
       >
         <SkewTOutline />
         <Profile soundingData={props.soundingData} />
+      </svg>
+
+      <svg
+        id="skewTWindBarbLiner"
+        x={skewTWindBarbs.x}
+        y={skewTWindBarbs.y}
+        width={skewTWindBarbs.width}
+        height={skewTWindBarbs.height}
+      >
+        <WindBarbLiner soundingData={props.soundingData} />
       </svg>
     </Fragment>
   )

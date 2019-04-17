@@ -1,7 +1,6 @@
 import React from 'react';
 import toSkewTCoord from '../transform/skewT-transform';
 import {
-  skewTParams,
   skewTLabels,
 } from '../config/skewT-config';
 import {
@@ -19,13 +18,14 @@ export default function PressureLevelLabels() {
       {
         skewTLabels.pressures.map(p => {
           let y = toSkewTCoord(p, 0).y + upperPadding,
-              x = skewTLabelPadding.x + skewTLabelPadding.width
+              x = skewTLabelPadding.x + skewTLabelPadding.width;
 
-          return React.createElement('text', {
-            'x': x.toString(),
-            'y': y.toString(),
-            'alignment-baseline': 'middle'
-          }, p);
+          return (
+            <text
+              x={x}
+              y={y}
+            >{p}</text>
+          )
         })
       }
     </g>

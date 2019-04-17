@@ -21,10 +21,12 @@ export default function IsothermLabels() {
               x = coords.x + skewTLabelPadding.width;
 
           if (x >= skewTLabelPadding.width) {
-            return React.createElement('text', {
-              'x': x.toString(),
-              'y': y.toString(),
-            }, T);
+            return (
+              <text
+                x={x}
+                y={y}
+              >{T}</text>
+            )
           } 
           else {
             return null;

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import { getPathStr, extract_pT_Field } from './plot-helpers';
 
@@ -11,7 +11,7 @@ export default class Profile extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props != nextProps) {
+    if (this.props !== nextProps) {
       this.setState({soundingData: nextProps.soundingData});
     }
   }
