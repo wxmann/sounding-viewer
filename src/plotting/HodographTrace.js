@@ -56,7 +56,7 @@ const styles ={
   'hodo_kmGT9': {stroke: '#00FFFF'}
 }
 
-export default class HodographWindTrace extends React.Component {
+export default class HodographTrace extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

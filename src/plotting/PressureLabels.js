@@ -8,7 +8,7 @@ import {
   skewTLabelPadding
 } from '../config/container';
 
-export default function PressureLevelLabels() {
+export default function PressureLabels() {
   return (
     <g
       id="pressureLevelLabels"

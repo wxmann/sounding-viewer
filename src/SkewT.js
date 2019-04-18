@@ -6,9 +6,9 @@ import {
   skewTWindStaffArea
 } from './config/container';
 import SkewTOutline from './plotting/SkewTOutline';
-import SkewTTempTrace from './plotting/SkewTTempTrace';
+import TempTrace from './plotting/TempTrace';
 import IsothermLabels from './plotting/IsothermLabels';
-import PressureLevelLabels from './plotting/PressureLevelLabels';
+import PressureLabels from './plotting/PressureLabels';
 import WindStaff from './plotting/WindStaff';
 
 export default function SkewT(props) {
@@ -21,7 +21,7 @@ export default function SkewT(props) {
         width={skewTLabelArea.width}
         height={skewTLabelArea.height}
       >
-        <PressureLevelLabels />
+        <PressureLabels />
         <IsothermLabels />
       </svg>
 
@@ -33,7 +33,7 @@ export default function SkewT(props) {
         height={skewTArea.height}
       >
         <SkewTOutline />
-        <SkewTTempTrace soundingData={props.soundingData} />
+        <TempTrace soundingData={props.soundingData} />
       </svg>
 
       <svg

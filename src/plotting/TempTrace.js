@@ -2,7 +2,7 @@ import React from 'react';
 
 import { getPathStr, extract_pT_Field } from '../utils/plot-helpers';
 
-export default class SkewTTempTrace extends React.Component {
+export default class TempTrace extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

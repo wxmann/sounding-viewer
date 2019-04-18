@@ -10,7 +10,7 @@ const windBarbConfig = (() => {
       shortBarbHeight: barbLengthBase / 6,
       flagWidth: barbLengthBase / 6,
       barbSpacing: barbLengthBase / 8,
-      deltaBarb: 50
+      deltaBarb: 40
   };
   return barbConfig;
   
