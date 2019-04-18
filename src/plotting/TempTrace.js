@@ -2,6 +2,12 @@ import React from 'react';
 
 import { getPathStr, extract_pT_Field } from '../utils/plot-helpers';
 
+const commonTraceStyle = {
+  strokeWidth: 3.5,
+  opacity: 1.0,
+  fill: 'none'
+}
+
 export default class TempTrace extends React.Component {
   constructor(props) {
     super(props);
@@ -33,8 +39,7 @@ export default class TempTrace extends React.Component {
             )
           }
           stroke="red"
-          strokeWidth="4px"
-          fill="none"
+          style={commonTraceStyle}
         />
 
         <path 
@@ -45,8 +50,7 @@ export default class TempTrace extends React.Component {
             )
           }
           stroke="green"
-          strokeWidth="4px"
-          fill="none"
+          style={commonTraceStyle}
         />
       </g>
     )

@@ -49,11 +49,17 @@ function extractHodoPath(data) {
   return getPathStr(coordData);
 }
 
-const styles ={
-  'hodo_km03': {stroke: 'red'},
-  'hodo_km36': {stroke: '#00FF00'},
-  'hodo_km69': {stroke: 'orange'},
-  'hodo_kmGT9': {stroke: '#00FFFF'}
+const commonStyle = {
+  strokeWidth: 3.5,
+  opacity: 1.0,
+  fill: 'none'
+}
+
+const levelSpecificStyles ={
+  'hodo_km03': {stroke: 'red', ...commonStyle},
+  'hodo_km36': {stroke: '#00FF00', ...commonStyle},
+  'hodo_km69': {stroke: 'orange', ...commonStyle},
+  'hodo_kmGT9': {stroke: '#00FFFF', ...commonStyle}
 }
 
 export default class HodographTrace extends React.Component {
@@ -93,9 +99,7 @@ export default class HodographTrace extends React.Component {
                 <path
                   id={partitionKey}
                   d={extractHodoPath(partitionData)}
-                  style={styles[partitionKey]}
-                  strokeWidth="4"
-                  fill="none"
+                  style={levelSpecificStyles[partitionKey]}
                 />
               )
             }) 

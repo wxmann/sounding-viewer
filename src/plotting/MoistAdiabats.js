@@ -20,6 +20,12 @@ function getMoistAdiabat(thetaW, hiP, lowP, dp) {
 }
 
 export default function MoistAdiabats() {
+  const style = {
+    fill: 'none',
+    stroke: 'green',
+    opacity: 0.5,
+    strokeWidth: 1,
+  };
   return (
     <path 
       id="moistAdiabats"
@@ -29,8 +35,7 @@ export default function MoistAdiabats() {
           return getPathStr(moistAdiabatCoords);
         })
       }
-      stroke="green"
-      fill="none"
+      style={style}
     />
   )
 };

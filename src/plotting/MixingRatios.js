@@ -11,6 +11,11 @@ import {
 } from '../utils/calcs'
 
 export default function MixingRatios() {
+  const style = {
+    fill: 'none',
+    stroke: 'pink',
+    strokeWidth: 1
+  };
   return (
     <path 
       id="mixingRatios"
@@ -27,9 +32,7 @@ export default function MixingRatios() {
           return getPathStr([bottomCoord, topCoord]);
         })
       }
-      stroke="gray"
-      alpha="0.9"
-      fill="none"
+      style={style}
     />
   )
 };

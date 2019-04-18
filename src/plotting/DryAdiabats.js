@@ -20,6 +20,12 @@ function getDryAdiabat(theta, hiP, lowP, dp) {
 }
 
 export default function DryAdiabats() {
+  const style = {
+    fill: 'none',
+    stroke: 'orange',
+    opacity: 0.8,
+    strokeWidth: 1
+  }
   return (
     <path 
       id="dryAdiabats"
@@ -29,8 +35,7 @@ export default function DryAdiabats() {
           return getPathStr(dryAdiabatCoords);
         })
       }
-      stroke="orange"
-      fill="none"
+      style={style}
     />
   )
 };

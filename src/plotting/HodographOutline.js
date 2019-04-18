@@ -15,6 +15,12 @@ const cy = hodographArea.height / 2;
 const rMax = Math.sqrt(cx ** 2 + cy ** 2);
 
 export default function HodographOutline() {
+  const outlineStyle = {
+    fill: 'none',
+    stroke: 'gray',
+    strokeWidth: 1,
+    opacity: 0.6
+  }
   return (
     <Fragment>
       <rect
@@ -30,6 +36,7 @@ export default function HodographOutline() {
       <g 
         id="hodographOutline" 
         transform={`translate(${cx} ${cy})`}
+        style={outlineStyle}
       >
         <g id="hodographRadii">
           {
@@ -40,8 +47,6 @@ export default function HodographOutline() {
                   cx="0"
                   cy="0"
                   r={r}
-                  fill="none"
-                  stroke="gray"
                 />
               )
             })

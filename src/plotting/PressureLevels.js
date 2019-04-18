@@ -8,6 +8,12 @@ import {
 } from '../utils/plot-helpers';
 
 export default function PressureLevels() {
+  const style = {
+    fill: 'none',
+    stroke: 'gray',
+    opacity: 0.9,
+    strokeWidth: 1
+  };
   return (
     <path 
       id="pressureLevels"
@@ -19,8 +25,7 @@ export default function PressureLevels() {
             return getPathStr([leftCoord, rightCoord]);
           })
       }
-      stroke="black"
-      fill="none"
+      style={style}
     />
   )
 };
