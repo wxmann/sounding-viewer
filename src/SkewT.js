@@ -6,7 +6,7 @@ import {
   skewTWindStaffArea
 } from './config/container';
 import SkewTOutline from './plotting/SkewTOutline';
-import Profile from './plotting/Profile';
+import SkewTTempTrace from './plotting/SkewTTempTrace';
 import IsothermLabels from './plotting/IsothermLabels';
 import PressureLevelLabels from './plotting/PressureLevelLabels';
 import WindStaff from './plotting/WindStaff';
@@ -33,7 +33,7 @@ export default function SkewT(props) {
         height={skewTArea.height}
       >
         <SkewTOutline />
-        <Profile soundingData={props.soundingData} />
+        <SkewTTempTrace soundingData={props.soundingData} />
       </svg>
 
       <svg

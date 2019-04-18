@@ -3,13 +3,13 @@ import {
   hodographArea
 } from './config/container'
 import HodographOutline from './plotting/HodographOutline';
-import HodographTrace from './plotting/HodographTrace';
+import HodographWindTrace from './plotting/HodographWindTrace';
 
 export default function Hodograph(props) {
   let {
     soundingData
   } = props;
-  
+
   return (
     <svg
       id="hodograph"
@@ -19,7 +19,7 @@ export default function Hodograph(props) {
       height={hodographArea.height}
     >
       <HodographOutline />
-      <HodographTrace soundingData={soundingData} />
+      <HodographWindTrace soundingData={soundingData} />
     </svg>
   )
 }
