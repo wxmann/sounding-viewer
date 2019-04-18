@@ -4,6 +4,7 @@ import {
   containerHeight,
   containerWidth
 } from './config/container';
+import Hodograph from './Hodograph';
 
 export default function Viewport(props) {
   return (
@@ -15,6 +16,7 @@ export default function Viewport(props) {
       height={containerHeight}
     >
       <SkewT soundingData={props.soundingData} />
+      <Hodograph />
     </svg>
   )
 }
