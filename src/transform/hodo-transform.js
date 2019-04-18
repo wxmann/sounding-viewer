@@ -1,7 +1,8 @@
 import { hodographArea } from '../config/container';
+import { hodoParams } from '../config/hodo-config';
 
 function v_Transform(v, dir) {
-    const rRel = v / hodoConfig.vMax;
+    const rRel = v / hodoParams.vMax;
     // convert cardinal direction to radians
     const theta = (dir + 90) * (Math.PI / 180);
     return {

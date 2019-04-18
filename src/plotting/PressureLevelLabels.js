@@ -24,6 +24,7 @@ export default function PressureLevelLabels() {
             <text
               x={x}
               y={y}
+              alignmentBaseline="middle"
             >{p}</text>
           )
         })
