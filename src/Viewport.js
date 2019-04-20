@@ -20,10 +20,9 @@ function Viewport() {
       height={containerHeight}
     >
       <SkewT />
-      {/* <Hodograph soundingData={props.soundingData} /> */}
+      <Hodograph/>
     </svg>
   )
 }
 
-// export default Viewport = connect(stateToProps)(Viewport);
 export default Viewport;

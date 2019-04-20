@@ -16,13 +16,6 @@ const fetchSounding = function(soundingOptions) {
   }
 }
 
-// const setSounding = function(soundingData) {
-//   return {
-//     type: actionTypes.SOUNDING_LOADED,
-//     soundingData
-//   }
-// }
-
 export {
   actionTypes,
   fetchSounding
