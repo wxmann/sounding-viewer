@@ -13,7 +13,7 @@ import PressureLabels from './plotting/PressureLabels';
 import WindStaff from './plotting/WindStaff';
 
 function SkewT(props) {
-  if (!props.soundingSelected) {
+  if (props.soundingData === null) {
     return null;
   }
   return (
@@ -55,7 +55,6 @@ function SkewT(props) {
 
 const stateToProps = function(state) {
   return {
-    soundingSelected: state.soundingSelected,
     soundingData: state.soundingData
   }
 };

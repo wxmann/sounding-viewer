@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import Viewport from './Viewport';
-import fetchRaob from './fetchRaob';
 import 'react-datepicker/dist/react-datepicker.css';
+import { fetchSounding } from './actions';
+import { connect } from 'react-redux';
 
-export default class QueryForm extends Component {
+class QueryForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,20 +31,7 @@ export default class QueryForm extends Component {
       hour: this.state.hour
     }
 
-    try {
-      let sounding = await fetchRaob(formData);
-      this.setState({
-        soundingResult: sounding,
-        isLoaded: true,
-        error: null
-      });
-    } catch (error) {
-      console.log(error);
-      this.setState({
-        isLoaded: false,
-        error: error 
-      });
-    }
+    this.props.dispatch(fetchSounding(formData));
   }
 
   render() {
@@ -68,10 +56,10 @@ export default class QueryForm extends Component {
           <input type="submit" value="Submit" />
         </form>
 
-        <Viewport 
-          soundingData={this.state.soundingResult} 
-        />
+        <Viewport />
       </div>
     );
   }
 }
+
+export default connect()(QueryForm);
