@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
 
 import { 
   skewTArea,
@@ -11,7 +12,10 @@ import IsothermLabels from './plotting/IsothermLabels';
 import PressureLabels from './plotting/PressureLabels';
 import WindStaff from './plotting/WindStaff';
 
-export default function SkewT(props) {
+function SkewT(props) {
+  if (!props.soundingSelected) {
+    return null;
+  }
   return (
     <Fragment>
       <svg
@@ -48,3 +52,12 @@ export default function SkewT(props) {
     </Fragment>
   )
 }
+
+const stateToProps = function(state) {
+  return {
+    soundingSelected: state.soundingSelected,
+    soundingData: state.soundingData
+  }
+};
+
+export default connect(stateToProps)(SkewT);

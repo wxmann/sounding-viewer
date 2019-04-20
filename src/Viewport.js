@@ -5,8 +5,12 @@ import {
   containerWidth
 } from './config/container';
 import Hodograph from './Hodograph';
+import {
+  setSounding
+} from './actions';
+import { connect } from 'react-redux';
 
-export default function Viewport(props) {
+function Viewport() {
   return (
     <svg
       id="viewport" 
@@ -15,8 +19,11 @@ export default function Viewport(props) {
       width={containerWidth}
       height={containerHeight}
     >
-      <SkewT soundingData={props.soundingData} />
-      <Hodograph soundingData={props.soundingData} />
+      <SkewT />
+      {/* <Hodograph soundingData={props.soundingData} /> */}
     </svg>
   )
 }
+
+// export default Viewport = connect(stateToProps)(Viewport);
+export default Viewport;
