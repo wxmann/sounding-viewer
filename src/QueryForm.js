@@ -38,7 +38,7 @@ class QueryForm extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{display: 'inlineBlock'}}>
         <form onSubmit={this.handleSubmit} align="center">
           <TextField
             id="stationField"
@@ -79,7 +79,7 @@ class QueryForm extends Component {
               <option value={hrOption}>{hrOption}</option>
             ))}
           </TextField>
-
+        
           <Button
             type="submit"
             onSubmit={this.handleSubmit}
@@ -87,7 +87,6 @@ class QueryForm extends Component {
           >
             Submit
           </Button>
-
         </form>
       </div>
     );
