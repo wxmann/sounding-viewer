@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import Viewport from './Viewport';
-import fetchRaob from './fetchRaob';
 import 'react-datepicker/dist/react-datepicker.css';
+import { fetchSounding } from './actions';
+import { connect } from 'react-redux';
 
-export default class QueryForm extends Component {
+class QueryForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       station : null,
-      raobDate: new Date(),
-      soundingResult : null,
-      isLoaded: false,
-      error: null
+      raobDate: new Date()
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,48 +28,35 @@ export default class QueryForm extends Component {
       hour: this.state.hour
     }
 
-    try {
-      let sounding = await fetchRaob(formData);
-      this.setState({
-        soundingResult: sounding,
-        isLoaded: true,
-        error: null
-      });
-    } catch (error) {
-      console.log(error);
-      this.setState({
-        isLoaded: false,
-        error: error 
-      });
-    }
+    this.props.dispatch(fetchSounding(formData));
   }
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <div>
+          <span>
             Station:
             <input type="text" onChange={(e)=>this.setState({station: e.target.value})} />
-          </div>
-          <div>
+          </span>
+          <span>
             Date:
             <DatePicker
               selected={this.state.raobDate}
               onChange={(date) => this.setState({raobDate: date})}
             />
-          </div>
-          <div>
+          </span>
+          <span>
             Hour:
             <input type="int" onChange={(e) => this.setState({hour: e.target.value})} />
-          </div>
+          </span>
           <input type="submit" value="Submit" />
         </form>
 
-        <Viewport 
-          soundingData={this.state.soundingResult} 
-        />
+        <Viewport />
       </div>
     );
   }
 }
+
+export default connect()(QueryForm);

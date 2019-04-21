@@ -62,49 +62,29 @@ const levelSpecificStyles ={
   'hodo_kmGT9': {stroke: '#00FFFF', ...commonStyle}
 }
 
-export default class HodographTrace extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      soundingData: null,
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props !== nextProps) {
-      this.setState({soundingData: nextProps.soundingData});
-    }
-  }
-
-  render() {
-    let data = this.state.soundingData;
-
-    if (data === null) {
-      return null;
-    } 
-  
-    return (
-      <g 
-        id="hodographTrace"
-        transform={`translate(${hodographArea.width / 2} ${hodographArea.height / 2})`}
-      >
-        {
-          Object.entries(partitionTrace(data.data))
-            .map((partition) => {
-              let [
-                partitionKey,
-                partitionData
-              ] = partition;
-              return (
-                <path
-                  id={partitionKey}
-                  d={extractHodoPath(partitionData)}
-                  style={levelSpecificStyles[partitionKey]}
-                />
-              )
-            }) 
-          }
-      </g>
-    )
-  }
+export default function HodographTrace(props) {
+  let data = props.soundingData;
+  return (
+    <g 
+      id="hodographTrace"
+      transform={`translate(${hodographArea.width / 2} ${hodographArea.height / 2})`}
+    >
+      {
+        Object.entries(partitionTrace(data.data))
+          .map((partition) => {
+            let [
+              partitionKey,
+              partitionData
+            ] = partition;
+            return (
+              <path
+                id={partitionKey}
+                d={extractHodoPath(partitionData)}
+                style={levelSpecificStyles[partitionKey]}
+              />
+            )
+          }) 
+        }
+    </g>
+  )
 }

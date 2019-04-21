@@ -31,55 +31,36 @@ function adjustedDeltaBarb(p) {
   return Math.sqrt(p / 1000) * windBarbConfig.deltaBarb;
 }
 
-export default class WindStaff extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      soundingData: null,
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props !== nextProps) {
-      this.setState({soundingData: nextProps.soundingData});
-    }
-  }
-
-  render() {
-    let data = this.state.soundingData;
-    if (data === null) {
-      return null;
-    } 
-
-    return (
-      <g id="windBarbLiner">
-        {
-          densityAdjustBarbs(
-            data.data.filter(ob => {
-              return ob.pressure !== null && ob.speed !== null && ob.direction !== null;
-            })
-          ).map(ob => {
-            let p = ob.pressure;
-            let windspd = ob.speed;
-            let winddir = ob.direction;
-
-            let yCoord = toSkewTCoord(p, 0).y + upperPadding;
-            let xCoord = skewTWindStaffArea.width / 2;
-
-            if (yCoord < upperPadding) {
-              return null;
-            }
-
-            return (
-              <WindBarb 
-                windspd={windspd}
-                winddir={winddir}
-                coord={{x: xCoord, y: yCoord}}
-              />
-            );
+export default function WindStaff(props) {
+  let data = props.soundingData;
+  return (
+    <g id="windBarbLiner">
+      {
+        densityAdjustBarbs(
+          data.data.filter(ob => {
+            return ob.pressure !== null && ob.speed !== null && ob.direction !== null;
           })
-        }
-      </g>
-    )
-  }
+        ).map(ob => {
+          let p = ob.pressure;
+          let windspd = ob.speed;
+          let winddir = ob.direction;
+
+          let yCoord = toSkewTCoord(p, 0).y + upperPadding;
+          let xCoord = skewTWindStaffArea.width / 2;
+
+          if (yCoord < upperPadding) {
+            return null;
+          }
+
+          return (
+            <WindBarb 
+              windspd={windspd}
+              winddir={winddir}
+              coord={{x: xCoord, y: yCoord}}
+            />
+          );
+        })
+      }
+    </g>
+  )
 }
