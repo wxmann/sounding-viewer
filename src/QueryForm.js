@@ -76,8 +76,8 @@ class QueryForm extends Component {
               native: true,
             }}
           >
-            {["0", "12", "18", "6"].map(hrOption => (
-              <option key={hrOption} value={hrOption}>{hrOption}</option>
+            {[0, 12, 18, 6].map(hrOption => (
+              <option value={hrOption}>{hrOption}</option>
             ))}
           </TextField>
 
