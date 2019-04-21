@@ -1,34 +1,33 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import SkewT from './SkewT';
 import Hodograph from './Hodograph';
-import Loading from './Loading';
 import {
   containerHeight,
   containerWidth
 } from './config/container';
+import Loading from './Loading';
 
 function Viewport(props) {
   return (
-    <Fragment>
+    <div align="center">
       {
         props.isLoading ? 
           <Loading /> : 
         (
           <svg
             id="viewport" 
-            // x="0"
-            // y="0"
             width={containerWidth}
             height={containerHeight}
+            align="center"
           >
             <SkewT />
             <Hodograph />
           </svg>
         )
       }
-    </Fragment>
+    </div>
   )
 }
 

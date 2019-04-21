@@ -1,13 +1,10 @@
 import React from 'react';
-import { ClipLoader } from 'react-spinners';
+import { CircularProgress } from '@material-ui/core';
 
 export default function Loading() {
   return (
-    <ClipLoader
-      sizeUnit={"px"}
-      size={150}
-      color={'blue'}
-      loading={true}
+    <CircularProgress
+      variant="indeterminate"
     />
   )
 }
