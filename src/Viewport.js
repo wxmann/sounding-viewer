@@ -8,13 +8,15 @@ import {
   containerWidth
 } from './config/container';
 import Loading from './Loading';
+import NoSoundingFound from './NoSoundingFound';
 
 function Viewport(props) {
   return (
     <div align="center">
       {
         props.isLoading ? 
-          <Loading /> : 
+          <Loading /> : props.error ? 
+            <NoSoundingFound query={props.query}/> :
         (
           <svg
             id="viewport" 
@@ -33,7 +35,9 @@ function Viewport(props) {
 
 const stateToProps = function(state) {
   return {
-    isLoading: state.isLoading
+    isLoading: state.isLoading,
+    error: state.error,
+    query: state.query
   }
 }
 

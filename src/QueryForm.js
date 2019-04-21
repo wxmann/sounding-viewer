@@ -43,6 +43,7 @@ class QueryForm extends Component {
         <form onSubmit={this.handleSubmit} align="center">
           <TextField
             id="stationField"
+            error ={this.props.error}
             label="Station"
             onChange={this.handleChange('station')}
             margin="dense"
@@ -51,11 +52,11 @@ class QueryForm extends Component {
               shrink: true,
             }}
           />
-          <TextField 
+          <TextField
             id="dateField"
+            error ={this.props.error}
             label="Date"
             type="date"
-            // defaultValue={(new Date().toUTCString)}
             onChange={e => this.setState({raobDate: new Date(Date.parse(e.target.value))})}
             variant="outlined" 
             margin="dense"
@@ -66,6 +67,7 @@ class QueryForm extends Component {
           <TextField
             select
             id="hourField"
+            error ={this.props.error}
             label="Hour"
             onChange={this.handleChange('hour')}
             variant="outlined" 
@@ -95,4 +97,10 @@ class QueryForm extends Component {
   }
 }
 
-export default connect()(QueryForm);
+const stateToProps = function(state) {
+  return {
+    error: state.error
+  }
+}
+
+export default connect(stateToProps)(QueryForm);
