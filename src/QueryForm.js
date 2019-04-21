@@ -10,10 +10,7 @@ class QueryForm extends Component {
     super(props);
     this.state = {
       station : null,
-      raobDate: new Date(),
-      soundingResult : null,
-      isLoaded: false,
-      error: null
+      raobDate: new Date()
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,21 +35,21 @@ class QueryForm extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <div>
+          <span>
             Station:
             <input type="text" onChange={(e)=>this.setState({station: e.target.value})} />
-          </div>
-          <div>
+          </span>
+          <span>
             Date:
             <DatePicker
               selected={this.state.raobDate}
               onChange={(date) => this.setState({raobDate: date})}
             />
-          </div>
-          <div>
+          </span>
+          <span>
             Hour:
             <input type="int" onChange={(e) => this.setState({hour: e.target.value})} />
-          </div>
+          </span>
           <input type="submit" value="Submit" />
         </form>
 

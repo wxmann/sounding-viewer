@@ -1,28 +1,41 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
+
 import SkewT from './SkewT';
+import Hodograph from './Hodograph';
+import Loading from './Loading';
 import {
   containerHeight,
   containerWidth
 } from './config/container';
-import Hodograph from './Hodograph';
-import {
-  setSounding
-} from './actions';
-import { connect } from 'react-redux';
 
-function Viewport() {
+function Viewport(props) {
   return (
-    <svg
-      id="viewport" 
-      x="0"
-      y="0"
-      width={containerWidth}
-      height={containerHeight}
-    >
-      <SkewT />
-      <Hodograph/>
-    </svg>
+    <Fragment>
+      {
+        props.isLoading ? 
+          <Loading /> : 
+        (
+          <svg
+            id="viewport" 
+            // x="0"
+            // y="0"
+            width={containerWidth}
+            height={containerHeight}
+          >
+            <SkewT />
+            <Hodograph />
+          </svg>
+        )
+      }
+    </Fragment>
   )
 }
 
-export default Viewport;
+const stateToProps = function(state) {
+  return {
+    isLoading: state.isLoading
+  }
+}
+
+export default connect(stateToProps)(Viewport);
