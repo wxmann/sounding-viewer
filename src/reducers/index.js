@@ -12,7 +12,8 @@ export default function rootReducer(state = initialState, action) {
       return Object.assign({}, {
         ...state,
         isLoading: true,
-        error: null
+        error: null,
+        query: action.soundingQuery
       })
     case actionTypes.SOUNDING_LOAD_SUCCESS: 
       return Object.assign({}, {

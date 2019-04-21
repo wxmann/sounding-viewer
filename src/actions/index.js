@@ -9,7 +9,7 @@ const actionTypes = {
 const fetchSounding = function(soundingOptions) {
   return async (dispatch) => {
     try {
-      dispatch({ type: actionTypes.SOUNDING_LOAD_START});
+      dispatch({ type: actionTypes.SOUNDING_LOAD_START, soundingQuery: soundingOptions});
       let soundingData = await fetchRaobFromDatasource(soundingOptions);
       dispatch({ type: actionTypes.SOUNDING_LOAD_SUCCESS, soundingData })
     } catch (error) {
