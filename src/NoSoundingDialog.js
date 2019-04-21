@@ -5,7 +5,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 
-class NoSoundingFound extends React.Component {
+class NoSoundingDialog extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -27,7 +27,7 @@ class NoSoundingFound extends React.Component {
         >
           <DialogContent>
             <DialogContentText id="noSoundingFound">
-              {`No Sounding Found for ${query.station} at
+              {`No Observations found for ${query.station} at
               ${query.month.toString().padStart(2, "0")}/${query.day.toString().padStart(2, "0")}/${query.year} 
               ${query.hour.toString().padStart(2, "0")}:00 UTC!`}
             </DialogContentText>
@@ -43,4 +43,4 @@ class NoSoundingFound extends React.Component {
   }
 }
 
-export default NoSoundingFound;
+export default NoSoundingDialog;

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Viewport from './Viewport';
 import { fetchSounding } from './actions';
 import { connect } from 'react-redux';
 import { TextField, Button } from '@material-ui/core';
@@ -90,8 +89,6 @@ class QueryForm extends Component {
           </Button>
 
         </form>
-
-        <Viewport />
       </div>
     );
   }
