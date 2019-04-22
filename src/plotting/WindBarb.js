@@ -26,6 +26,7 @@ export default function WindBarb(props) {
     let currentPosition = barbEndCoord;
     let fillStyle = {fill: 'none'}   // related to filling in the flags. Don't fill initially
     let left = windspd;
+    let gt5ktDrawn = false;
 
     // draw the 50kt barbs, if applicable
     while (left >= 50) {
@@ -39,6 +40,7 @@ export default function WindBarb(props) {
       // do fill in flags if they exist.
       fillStyle = {fill: 'black'};
       left -= 50;
+      gt5ktDrawn = true;
     }
 
     // draw the 10kt barbs, if applicable
@@ -48,21 +50,25 @@ export default function WindBarb(props) {
       currentPosition.y += barbSpacing;
       parts.push(["M", currentPosition.x, currentPosition.y].join(" "));
       left -= 10;
+      gt5ktDrawn = true;
     }
 
     // draw the 5kt barbs, if applicable
-    while (left >= 5) {
+    if (left >= 5) {
       let barbApex = {x: currentPosition.x + shortBarbHeight, y: currentPosition.y};
+      if (!gt5ktDrawn) {
+        barbApex.y += barbSpacing;
+        parts.push(["M", currentPosition.x, barbApex.y].join(" "));
+      }
       parts.push(["L", barbApex.x, barbApex.y].join(" "));
-      currentPosition.y += barbSpacing;
-      parts.push(["M", currentPosition.x, currentPosition.y].join(" "));
-      left -= 5;
     }
+    // hack to fix some browsers (Chrome 73?) rendering 90 degree SVG rotations in a weird manner
+    let rotation = winddir % 90 == 0 ? winddir + 0.01 : winddir
 
     return {
       d: parts.join(" "),
       // this incorporates wind dir and rotation
-      transform: `rotate(${[winddir, coord.x, coord.y].join(" ")})`,
+      transform: `rotate(${[rotation, coord.x, coord.y].join(" ")})`,
       style: {
         stroke: 'black',
         opacity: 1,
