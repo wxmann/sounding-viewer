@@ -73,9 +73,20 @@ export default function WindBarb(props) {
   }
 
   return (
-    React.createElement('path', {
-      className: 'windBarb',
-      ...getBarbAttrs()
-    })
+    <g>
+      <circle 
+        cx={coord.x}
+        cy={coord.y}
+        fill="black"
+        r="2"
+      />
+      {
+        windspd < 5 ? null:
+          React.createElement('path', {
+            className: 'windBarb',
+            ...getBarbAttrs()
+          })
+      }
+    </g>
   );
 }
