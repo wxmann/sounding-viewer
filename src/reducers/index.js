@@ -3,7 +3,8 @@ import { actionTypes } from '../actions';
 const initialState = {
   soundingData: null,
   isLoading: false,
-  error: null
+  error: null,
+  soundingParams: null
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -20,7 +21,8 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         error: null,
         isLoading: false,
-        soundingData: action.soundingData
+        soundingData: action.soundingData,
+        soundingParams: action.soundingParameters
       })
     case actionTypes.SOUNDING_LOAD_ERROR:
       return Object.assign({}, {

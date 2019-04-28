@@ -1,4 +1,4 @@
-import fetchRaobFromDatasource from '../fetchRaob';
+import { fetchRaob, fetchParameters } from '../fetchData';
 
 const actionTypes = {
   SOUNDING_LOAD_START: 'SOUNDING_LOAD_START',
@@ -10,8 +10,9 @@ const fetchSounding = function(soundingOptions) {
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.SOUNDING_LOAD_START, soundingQuery: soundingOptions});
-      let soundingData = await fetchRaobFromDatasource(soundingOptions);
-      dispatch({ type: actionTypes.SOUNDING_LOAD_SUCCESS, soundingData })
+      let soundingData = await fetchRaob(soundingOptions);
+      let soundingParameters = await fetchParameters(soundingData);
+      dispatch({ type: actionTypes.SOUNDING_LOAD_SUCCESS, soundingData, soundingParameters })
     } catch (error) {
       dispatch({ type: actionTypes.SOUNDING_LOAD_ERROR, error })
     }
