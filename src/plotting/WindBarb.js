@@ -80,14 +80,22 @@ export default function WindBarb(props) {
 
   return (
     <g>
-      <circle 
+      {/* <circle 
         cx={coord.x}
         cy={coord.y}
         fill="black"
-        r="2"
-      />
+        r="1"
+      /> */}
       {
-        windspd < 5 ? null:
+        windspd < 5 ? 
+          <circle 
+            cx={coord.x}
+            cy={coord.y}
+            fill="none"
+            stroke="black"
+            strokeWidth="1.5"
+            r="3"
+          /> :
           React.createElement('path', {
             className: 'windBarb',
             ...getBarbAttrs()

@@ -39,7 +39,7 @@ function SkewT(props) {
       >
         <SkewTOutline />
         <TempTrace soundingData={props.soundingData} />
-        <ParcelTrace parcelTrace={props.soundingParams.sb_parcel.non_corrected.profile} />
+        <ParcelTrace parcelTrace={props.soundingParams.ml_parcel.non_corrected.profile} />
       </svg>
 
       <svg
